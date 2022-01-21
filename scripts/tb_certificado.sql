@@ -1,7 +1,16 @@
 CREATE TABLE IF NOT EXISTS "tb_certificado" (
-    "ID_certificado" INT not null PRIMARY KEY,
-    "ID_matricula" INT,
-    "ID_modulo" INT
+    "ID_certificado" integer NOT NULL,
+    "ID_matricula" integer,
+    "ID_modulo" integer,
+    CONSTRAINT tb_certificado_pkey PRIMARY KEY ("ID_certificado"),
+    CONSTRAINT "ID_matricula" FOREIGN KEY ("ID_matricula")
+        REFERENCES public.tb_matricula ("ID_matricula") MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION,
+    CONSTRAINT "ID_modulo" FOREIGN KEY ("ID_modulo")
+        REFERENCES public.tb_modulo ("ID_modulo") MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION
 );
 INSERT INTO "tb_certificado" VALUES
     (752011,75201,201),
