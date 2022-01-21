@@ -95,7 +95,7 @@ CREATE TABLE IF NOT EXISTS public.tb_modulo
 (
     "ID_modulo" integer NOT NULL,
     nome text COLLATE pg_catalog."default",
-    curso integer,
+    "ID_curso" integer,
     assuntos text COLLATE pg_catalog."default",
     CONSTRAINT tb_modulo_pkey PRIMARY KEY ("ID_modulo")
 );
@@ -238,6 +238,14 @@ ALTER TABLE IF EXISTS public.tb_matricula
     REFERENCES public.tb_turma ("ID_turma") MATCH SIMPLE
     ON UPDATE NO ACTION
     ON DELETE NO ACTION;
+
+
+ALTER TABLE IF EXISTS public.tb_modulo
+    ADD CONSTRAINT "ID_curso" FOREIGN KEY ("ID_curso")
+    REFERENCES public.tb_curso ("ID_curso") MATCH SIMPLE
+    ON UPDATE NO ACTION
+    ON DELETE NO ACTION
+    NOT VALID;
 
 
 ALTER TABLE IF EXISTS public.tb_modulo_turma
