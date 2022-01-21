@@ -1,7 +1,12 @@
 CREATE TABLE IF NOT EXISTS "tb_reuniao" (
-    "ID_reuniao" INT not null PRIMARY KEY,
-    "ID_modulo_turma" INT,
-    "semana" INT
+    "ID_reuniao" integer NOT NULL,
+    "ID_modulo_turma" integer,
+    semana integer,
+    CONSTRAINT tb_reuniao_pkey PRIMARY KEY ("ID_reuniao"),
+    CONSTRAINT "ID_modulo_turma" FOREIGN KEY ("ID_modulo_turma")
+        REFERENCES public.tb_modulo_turma ("ID_modulo_turma") MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION
 );
 INSERT INTO "tb_reuniao" VALUES
     (85715367,1011,1),
