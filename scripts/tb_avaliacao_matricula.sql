@@ -1,7 +1,16 @@
 CREATE TABLE IF NOT EXISTS "tb_avaliacao_matricula" (
-    "ID_avaliacao" INT,
-    "ID_matricula" INT,
-    "mencao" TEXT
+    "ID_avaliacao" integer,
+    "ID_matricula" integer,
+    mencao text COLLATE pg_catalog."default",
+    CONSTRAINT "ID_avaliacao" FOREIGN KEY ("ID_avaliacao")
+        REFERENCES public.tb_avaliacao ("ID_avaliacao") MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION
+        NOT VALID,
+    CONSTRAINT "ID_matricula" FOREIGN KEY ("ID_matricula")
+        REFERENCES public.tb_matricula ("ID_matricula") MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION
 );
 INSERT INTO "tb_avaliacao_matricula" VALUES
     (20001,75201,'mais que pronto'),
