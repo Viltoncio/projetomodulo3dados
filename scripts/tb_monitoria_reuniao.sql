@@ -1,7 +1,13 @@
 CREATE TABLE IF NOT EXISTS "tb_monitoria_reuniao" (
-    "ID_monitoria" INT not null PRIMARY KEY,
-    "ID_reuniao" INT,
-    "assunto" TEXT
+    "ID_monitoria" integer NOT NULL,
+    "ID_reuniao" integer,
+    assunto text COLLATE pg_catalog."default",
+    CONSTRAINT tb_monitoria_reuniao_pkey PRIMARY KEY ("ID_monitoria"),
+    CONSTRAINT "ID_reuniao" FOREIGN KEY ("ID_reuniao")
+        REFERENCES public.tb_reuniao ("ID_reuniao") MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION
+        NOT VALID
 );
 INSERT INTO "tb_monitoria_reuniao" VALUES
     (881,85715367,'soft skills'),
