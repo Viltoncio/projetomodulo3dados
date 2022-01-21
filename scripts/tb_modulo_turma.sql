@@ -1,7 +1,16 @@
 CREATE TABLE IF NOT EXISTS "tb_modulo_turma" (
-    "ID_modulo_turma" INT not null PRIMARY KEY,
-    "ID_modulo" INT,
-    "ID_turma" INT
+    "ID_modulo_turma" integer NOT NULL,
+    "ID_modulo" integer,
+    "ID_turma" integer,
+    CONSTRAINT tb_modulo_turma_pkey PRIMARY KEY ("ID_modulo_turma"),
+    CONSTRAINT "ID_modulo" FOREIGN KEY ("ID_modulo")
+        REFERENCES public.tb_modulo ("ID_modulo") MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION,
+    CONSTRAINT "ID_turma" FOREIGN KEY ("ID_turma")
+        REFERENCES public.tb_turma ("ID_turma") MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION
 );
 INSERT INTO "tb_modulo_turma" VALUES
     (1011,101,1),
