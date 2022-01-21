@@ -1,8 +1,9 @@
 CREATE TABLE IF NOT EXISTS "tb_modulo" (
-    "ID_modulo" INT not null PRIMARY KEY,
-    "nome" TEXT,
-    "curso" INT,
-    "assuntos" TEXT
+    "ID_modulo" integer NOT NULL,
+    nome text COLLATE pg_catalog."default",
+    curso integer,
+    assuntos text COLLATE pg_catalog."default",
+    CONSTRAINT tb_modulo_pkey PRIMARY KEY ("ID_modulo")
 );
 INSERT INTO "tb_modulo" VALUES
     (101,'modulo 1',1,'lógica de programação, introdução a Python, versionamento de código, mindset, aprender a aprender, hábitos, gestão de tempo, rotina'),
