@@ -1,9 +1,14 @@
 CREATE TABLE IF NOT EXISTS "tb_avaliacao" (
-    "ID_avaliacao" INT,
-    "ID_modulo" INT,
-    "tipo_de_avaliacao" TEXT,
-    "prazo" TIMESTAMP,
-    "descricao" TEXT
+    "ID_avaliacao" integer NOT NULL,
+    "ID_modulo" integer,
+    tipo_de_avaliacao text COLLATE pg_catalog."default",
+    prazo timestamp without time zone,
+    descricao text COLLATE pg_catalog."default",
+    CONSTRAINT tb_avaliacao_pkey PRIMARY KEY ("ID_avaliacao"),
+    CONSTRAINT "ID_modulo" FOREIGN KEY ("ID_modulo")
+        REFERENCES public.tb_modulo ("ID_modulo") MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION
 );
 INSERT INTO "tb_avaliacao" VALUES
     (10001,101,'qualified','2021-05-01 00:00:00','questionário semana 1'),
