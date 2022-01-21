@@ -1,8 +1,19 @@
 CREATE TABLE IF NOT EXISTS "tb_aula" (
-    "ID_aula" INT not null PRIMARY KEY,
-    "ID_reuniao" INT,
-    "ID_modulo_turma" INT,
-    "data_hora" TIMESTAMP
+    "ID_aula" integer NOT NULL,
+    "ID_reuniao" integer,
+    "ID_modulo_turma" integer,
+    data_hora timestamp without time zone,
+    CONSTRAINT tb_aula_pkey PRIMARY KEY ("ID_aula"),
+    CONSTRAINT "ID_modulo_turma" FOREIGN KEY ("ID_modulo_turma")
+        REFERENCES public.tb_modulo_turma ("ID_modulo_turma") MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION
+        NOT VALID,
+    CONSTRAINT "ID_reuniao" FOREIGN KEY ("ID_reuniao")
+        REFERENCES public.tb_reuniao ("ID_reuniao") MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION
+        NOT VALID
 );
 INSERT INTO "tb_aula" VALUES
     (910111,85715367,1011,'2021-05-03 08:00:00'),
