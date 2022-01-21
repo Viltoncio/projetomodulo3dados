@@ -1,14 +1,15 @@
 CREATE TABLE IF NOT EXISTS "tb_facilitador" (
-    "ID_facilitador" INT not null PRIMARY KEY,
-    "nome" TEXT,
-    "email" TEXT,
-    "contato" TEXT,
-    "senha" TEXT,
-    "status" TEXT,
-    "conhecimentos" TEXT,
-    "CPF" TEXT,
-    "CEP" TEXT,
-    "endereco" TEXT
+    "ID_facilitador" integer NOT NULL,
+    nome text COLLATE pg_catalog."default",
+    email text COLLATE pg_catalog."default",
+    contato text COLLATE pg_catalog."default",
+    senha text COLLATE pg_catalog."default",
+    status text COLLATE pg_catalog."default",
+    conhecimentos text COLLATE pg_catalog."default",
+    "CPF" text COLLATE pg_catalog."default",
+    "CEP" text COLLATE pg_catalog."default",
+    endereco text COLLATE pg_catalog."default",
+    CONSTRAINT tb_facilitador_pkey PRIMARY KEY ("ID_facilitador")
 );
 INSERT INTO "tb_facilitador" VALUES
     (1,'Doriana Gentil Pessoa','dogentilpessoa@supermail.br','(01) 0000-0001','7*por&hfX0','ativo','soft skills','510.694.788-06','00000-001','Brasil, SP, Cidadinha, Vila Velha, rua Nova 01'),
