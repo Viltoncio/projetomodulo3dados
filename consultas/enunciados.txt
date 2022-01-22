@@ -1,0 +1,6 @@
+1- Selecionar a quantidade total de estudantes cadastrados no banco
+2- Selecionar todos os estudantes com os respectivos cursos que eles estão cadastrados
+3- Selecionar quais pessoas facilitadoras atuam/atuaram em mais de uma turma
+4- Selecionar todos os alunos que não são de RJ nem de SP
+5- Selecionar o curso com mais módulos
+6- Selecionar a quantidade de atividades de cada tipo para o módulo 1 de Análise de Dados 
